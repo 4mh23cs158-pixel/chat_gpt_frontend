@@ -2,41 +2,40 @@ import React from "react";
 
 const Home = () => {
     return (
-        <div className="w-full h-screen bg-white flex flex-col items-center pt-20 px-4">
-            {/* Heading */}
-            <h1 className="text-3xl font-semibold text-gray-800 mb-10">
-                What’s on your mind today?
+        <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4">
+            {/* Main content */}
+            <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-6">
+                What can I help with?
             </h1>
 
-            {/* Search / Ask anything */}
-            <div className="w-full max-w-3xl">
-                <div className="flex items-center bg-gray-100 rounded-full px-5 py-3 shadow-sm">
+            {/* Input box */}
+            <div className="w-full max-w-xl">
+                <div className="flex items-center gap-2 border border-gray-300 rounded-2xl px-4 py-3 shadow-sm focus-within:ring-2 focus-within:ring-gray-300">
                     <input
                         type="text"
                         placeholder="Ask anything"
-                        className="flex-1 bg-transparent outline-none text-gray-700"
+                        className="flex-1 outline-none text-gray-700 placeholder-gray-400"
                     />
-                    <button className="w-10 h-10 flex items-center justify-center bg-black text-white rounded-full">
-                        ●
-                    </button>
                 </div>
 
-                {/* Options below the bar */}
-                <div className="flex justify-center flex-wrap gap-3 mt-6">
-                    <button className="px-4 py-2 bg-gray-100 rounded-full text-sm hover:bg-gray-200">
-                        Create images
-                    </button>
-                    <button className="px-4 py-2 bg-gray-100 rounded-full text-sm hover:bg-gray-200">
-                        Learn something
-                    </button>
-                    <button className="px-4 py-2 bg-gray-100 rounded-full text-sm hover:bg-gray-200">
-                        Write or edit
-                    </button>
-                    <button className="px-4 py-2 bg-gray-100 rounded-full text-sm hover:bg-gray-200">
-                        Step-by-step help
-                    </button>
+                {/* Action buttons */}
+                <div className="flex flex-wrap gap-2 mt-4 justify-center">
+                    {["Attach", "Search", "Study", "Create image"].map((item) => (
+                        <button
+                            key={item}
+                            className="px-4 py-1.5 text-sm border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100 transition"
+                        >
+                            {item}
+                        </button>
+                    ))}
                 </div>
             </div>
+
+            {/* Footer text */}
+            <p className="text-xs text-gray-400 mt-10 text-center max-w-md">
+                By messaging ChatGPT, you agree to our Terms and have read our Privacy
+                Policy.
+            </p>
         </div>
     );
 };
