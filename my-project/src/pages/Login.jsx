@@ -32,6 +32,7 @@ const Login = () => {
             localStorage.setItem("access_token", access_token);
             localStorage.setItem("refresh_token", refresh_token);
             localStorage.setItem("token_type", token_type);
+            localStorage.setItem("email", email);
 
             setMessage("Login successful! ✅");
             console.log("Tokens saved:", response.data);
