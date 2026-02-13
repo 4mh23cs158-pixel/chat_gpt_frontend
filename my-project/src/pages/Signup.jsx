@@ -24,7 +24,7 @@ const Signup = () => {
         setMessage("");
 
         try {
-            const response = await fetch("http://127.0.0.1:8000/signup", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/signup`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -188,8 +188,8 @@ const Signup = () => {
                     {/* Message */}
                     {message && (
                         <div className={`mt-4 p-3 rounded-xl text-center text-sm font-medium ${message.includes("✅")
-                                ? "bg-green-900/30 text-green-400 border border-green-800/50"
-                                : "bg-red-900/30 text-red-400 border border-red-800/50"
+                            ? "bg-green-900/30 text-green-400 border border-green-800/50"
+                            : "bg-red-900/30 text-red-400 border border-red-800/50"
                             }`}>
                             {message}
                         </div>

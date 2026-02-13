@@ -26,7 +26,7 @@ const Home = () => {
 
     const fetchSessions = async (token) => {
         try {
-            const res = await axios.get("http://127.0.0.1:8000/sessions", {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/sessions`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             const backendSessions = res.data.sessions.map(s => ({
@@ -130,7 +130,7 @@ const Home = () => {
         try {
             const token = localStorage.getItem("access_token");
             const response = await axios.post(
-                "http://127.0.0.1:8000/ask",
+                `${import.meta.env.VITE_API_URL}/ask`,
                 {
                     message: userMessage.content,
                     system_prompt: currentMode === "study" ? "You are a professional tutor. Help the user study this topic." : "You are a helpful assistant.",
@@ -188,7 +188,7 @@ const Home = () => {
         if (item.isBackend) {
             try {
                 const token = localStorage.getItem("access_token");
-                const res = await axios.get(`http://127.0.0.1:8000/history/${item.id}`, {
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/history/${item.id}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setMessages(res.data.history);
